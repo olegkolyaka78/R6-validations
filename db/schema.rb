@@ -24,11 +24,10 @@ ActiveRecord::Schema.define(version: 2022_01_17_041533) do
   create_table "orders", force: :cascade do |t|
     t.string "product_name"
     t.integer "product_count"
-    t.integer "customer_id", null: false
+    t.integer "customer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_id"], name: "index_orders_on_customer_id"
   end
 
-  add_foreign_key "orders", "customers"
 end
