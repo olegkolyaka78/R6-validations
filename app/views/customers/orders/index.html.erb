@@ -1,0 +1,16 @@
+<table>
+  <thead>
+    <tr>
+       <th>Product Name </th>
+       <th>Product Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order|%>
+    <tr>
+      <td><%= order.product_name %></td>
+      <td><%= order.product_count %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

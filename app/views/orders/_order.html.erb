@@ -1,0 +1,37 @@
+<table>
+  <thead>
+    <tr>
+      <th>Product name</th>
+      <th>Product count</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%# @customer.orders do |order| %>
+    <% @customer.orders.each do |order| %>
+      <tr>
+        <td><%= order.product_name %></td>
+        <td><%= order.product_count %></td>
+        <%#td><%= link_to 'Show', [@customer, order] %>
+        <td><%= link_to 'Show', order %></td>
+        <td><%= link_to "Edit", edit_customer_order_path(@customer, order) %></td>
+        <%#td><%= link_to 'Edit', edit_order_path(order) %>
+        <td><%= link_to 'Delete', [@customer, order], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+<%#<div>
+    <strong>Product Name:</strong>
+    <strong>Product Count:</strong>
+    <%= order.product_name %>
+    <%#= order.product_count %>
+    <%#<div class="order-admin">
+        <%= link_to "Edit", edit_customer_order_path(@customer, order) %>
+        <%#<%= link_to "Delete", [@customer, order], method: :delete %>
+    <%#</div>
+#</div>

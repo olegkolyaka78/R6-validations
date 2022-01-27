@@ -20,5 +20,16 @@
   <%= @customer.email %>
 </p>
 
+<div id="orders">
+  <% if @customer.orders.present? %>
+    <h1>Orders</h1>
+    <%# render partial: "orders/order", collection: @customer.orders %>
+    <%= render @customer.orders %>
+  <% end %>
+  
+  <h2>Add an Order</h2>
+  <%= render partial: "orders/form", locals: {order: @customer.orders.new } %>
+</div>
+
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
 <%= link_to 'Back', customers_path %>
