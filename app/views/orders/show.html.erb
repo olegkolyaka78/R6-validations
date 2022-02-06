@@ -1,14 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Product name:</strong>
-  <%= @order.product_name %>
-</p>
+<h1>Order</h1>
 
-<p>
-  <strong>Product count:</strong>
-  <%= @order.product_count %>
-</p>
+<table>
+  <thead>
+    <tr>
+      <th>Order ID</th>
+      <th>Product name</th>
+      <th>Product count</th>
+      <th>Customer</th>
+    </tr>
+  </thead>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+  <tbody>
+      <tr>
+        <td><%= @order.id %></td>
+        <td><%= @order.product_name %></td>
+        <td><%= @order.product_count %></td>
+        <td><%= @order.customer.full_name %></td>
+        <td><%= link_to 'Show', @order %></td>
+        <td><%= link_to 'Edit', edit_order_path(@order) %></td>
+        <td><%= link_to 'Delete', @order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Order', new_order_path %> | <%= link_to 'Customers', customers_path %>

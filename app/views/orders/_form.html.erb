@@ -10,7 +10,10 @@
     <%= form.text_field :product_count %>
   </div>
 
-  <%= form.hidden_field(:customer_id) %>
+  <div class="field">
+    <%= form.label "Customer" %>
+    <%= form.collection_select :customer_id, Customer.all, :id, :full_name, include_blank: true %>
+  </div>
 
   <br>
 

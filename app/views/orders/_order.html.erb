@@ -1,21 +1,7 @@
-<table>
-  <thead>
-    <tr>
-      <th>Product name</th>
-      <th>Product count</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @customer.orders.each do |order| %>
-      <tr>
+       <tr>
         <td><%= order.product_name %></td>
         <td><%= order.product_count %></td>
-        <td><%= link_to 'Show', order %></td>
+        <td><%= link_to "Show", customer_order_path(@customer, order) %></td>
         <td><%= link_to "Edit", edit_customer_order_path(@customer, order) %></td>
         <td><%= link_to 'Delete', order_path(order), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
-  </tbody>
-</table>

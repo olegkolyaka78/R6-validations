@@ -4,7 +4,9 @@ RSpec.describe "CustomersControllers", type: :request do
     it "renders the index view" do
       FactoryBot.create_list(:customer, 10)
       get customers_path
-      expect(response).to render_template(:index)
+      #expect(response).to render_template(:index)
+      expect(response).to render_template("customers/index.html.erb", layout: "application")
+      #expect(response).to render_template("customers/index")
     end
   end
   describe "get customer_path" do

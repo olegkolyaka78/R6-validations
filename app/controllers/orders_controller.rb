@@ -1,17 +1,18 @@
 class OrdersController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
-  before_action :set_customer, only: [ :show, :update, :create ]
+  before_action :set_customer, only: [ :update, :create ]
   layout 'order_layout'
 
   # GET /orders or /orders.json
   def index
     @orders = Order.all
-    #@orders = @customer.orders
+    render :index
   end
 
   # GET /orders/1 or /orders/1.json
   def show
     @order = Order.find(params[:id])
+    render :show
   end
 
   # GET /orders/new
@@ -22,6 +23,7 @@ class OrdersController < ApplicationController
   # GET /orders/1/edit
   def edit
     @order = Order.find(params[:id])
+    render :edit
   end
 
   # POST /orders or /orders.json
@@ -36,13 +38,13 @@ class OrdersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /customers/1 or /customers/1.json
+  # PATCH/PUT /orders/1 or /orders/1.json
   def update
     @order = Order.find(params[:id])
-    @order.update(order_params)
+    #@order.update(order_params)
     if @order.update(order_params)
-      flash.notice = "The customer record was updated successfully."
-      redirect_to @customer
+      flash.notice = "The order was updated successfully."
+      redirect_to order_path(@order)
     else
       flash.now.alert = @order.errors.full_messages.to_sentence
       render :edit

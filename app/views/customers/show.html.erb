@@ -21,10 +21,21 @@
 </p>
 
 <div id="orders">
+
   <% if @customer.orders.present? %>
     <h1>Orders</h1>
-    <%# render partial: "orders/order", collection: @customer.orders %>
-    <%= render @customer.orders %>
+    <table>
+      <thead>
+        <tr>
+          <th>Product name</th>
+          <th>Product count</th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @customer.orders %>
+      </tbody>
+    </table>
   <% end %>
   
   <h2>Add an Order</h2>

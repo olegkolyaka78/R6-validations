@@ -28,11 +28,7 @@ class CustomersController < ApplicationController
     if @customer.save
       flash.notice = "The customer record was created successfully."
       redirect_to @customer
-      #format.html { redirect_to @customer, notice: "The customer record was successfully created." }
-      #format.json { render :show, status: :created, location: @customer }
     else
-      #format.html { render :new, status: :unprocessable_entity }
-      #format.json { render json: @customer.errors, status: :unprocessable_entity }
       flash.now.alert = @customer.errors.full_messages.to_sentence
       render :new  
     end
@@ -41,8 +37,6 @@ class CustomersController < ApplicationController
   # PATCH/PUT /customers/1 or /customers/1.json
   def update
     if @customer.update(customer_params)
-      #format.html { redirect_to @customer, notice: "The customer record was successfully updated." }
-      #format.json { render :show, status: :ok, location: @customer }
       flash.notice = "The customer record was updated successfully."
       redirect_to @customer
     else
