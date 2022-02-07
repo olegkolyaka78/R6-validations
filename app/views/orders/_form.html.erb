@@ -1,0 +1,24 @@
+<%= form_for [@customer, order] do |form| %>
+  
+  <div class="field">
+    <%= form.label "Product name" %>
+    <%= form.text_field :product_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Product count" %>
+    <%= form.text_field :product_count %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Customer" %>
+    <%= form.collection_select :customer_id, Customer.all, :id, :full_name, include_blank: true %>
+  </div>
+
+  <br>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+<% end %>
