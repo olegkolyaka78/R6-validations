@@ -1,7 +1,7 @@
        <tr>
         <td><%= order.product_name %></td>
         <td><%= order.product_count %></td>
-        <td><%= link_to "Show", customer_order_path(@customer, order) %></td>
-        <td><%= link_to "Edit", edit_customer_order_path(@customer, order) %></td>
-        <td><%= link_to 'Delete', order_path(order), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to "Show", customer_order_path(@customer, order), class: "btn btn-primary"  %></td>
+        <td><%= link_to "Edit", edit_customer_order_path(@customer, order), class: "btn btn-primary"  %></td>
+        <td><%= link_to 'Delete', order_path(order), class: "btn btn-primary",  method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

@@ -1,6 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Order</h1>
+<div class="card" style="width: 36rem;">
+  <img src="https://media.geeksforgeeks.org/wp-content/uploads/gfg-40.png" width="30" height="30" class="card-img-top" alt="image">
+  <div class="card shadow p-3 mb-5 bg-white rounded">
+  <div class="card-body">
+    <h5 class="card-title">Order</h5>
+    <p class="card-text"></p>
+    
 
 <table>
   <thead>
@@ -18,13 +24,23 @@
         <td><%= @order.product_name %></td>
         <td><%= @order.product_count %></td>
         <td><%= @order.customer.full_name %></td>
-        <td><%= link_to 'Show', @order %></td>
-        <td><%= link_to 'Edit', edit_order_path(@order) %></td>
-        <td><%= link_to 'Delete', @order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
   </tbody>
 </table>
 
 <br>
+<div class="container" allign-center>
+<span class="align-middle">
+<%= link_to 'Show', @order, class: "btn btn-primary btn-sm" %>
+<%= link_to 'Edit', edit_order_path(@order), class: "btn btn-primary btn-sm" %>
+<%= link_to 'Delete', @order, class: "btn btn-primary btn-sm",  method: :delete, data: { confirm: 'Are you sure?' } %>
+</span>
+</div>
+<br>
+<br>
+<br>
+<%= link_to 'New Order', new_order_path, class: "btn btn-outline-secondary btn-sm" %> <%= link_to 'Customers', customers_path, class: "btn btn-outline-secondary btn-sm" %>
 
-<%= link_to 'New Order', new_order_path %> | <%= link_to 'Customers', customers_path %>
+  </div>
+  </div>
+</div>

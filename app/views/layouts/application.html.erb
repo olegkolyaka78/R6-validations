@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Validations</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,7 +10,45 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4 d-flex justify-content-center text-white mb-5 mt-0">Validations</h1>
+    <br>
+    <br>
+    <br>
+    <p class="lead d-flex justify-content-center text-white mb-0">lesson 4.4</p>
+  </div>
+</div>
   <body>
+    <% if !flash[:alert].nil? %>
+      <p class="my_alert"><%= flash[:alert] %></p>
+    <% end %>
     <%= yield %>
   </body>
+<div class="fixed-top">
+  <nav class="navbar navbar-expand-sm   navbar-dark bg-primary">
+<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+  <li class="nav-item dropdown dmenu">
+  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+    Customers
+  </a>
+  <div class="dropdown-menu sm-menu">
+    <%= link_to 'List Customers', customers_path, class: "dropdown-item" %>
+    <%= link_to 'New Customer', new_customer_path, class: "dropdown-item" %>
+  </div>
+</li>
+ <li class="nav-item dropdown dmenu">
+  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+    Orders
+  </a>
+  <div class="dropdown-menu sm-menu">
+    <%= link_to 'List Orders', orders_path, class: "dropdown-item" %>
+    <%= link_to 'New Order', new_order_path, class: "dropdown-item" %>
+  </div>
+</li>
+</ul>
+</nav>
+</div>
+
+  
 </html>

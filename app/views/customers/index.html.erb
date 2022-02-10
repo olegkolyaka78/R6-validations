@@ -1,29 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Customers</h1>
-
-<table>
-  <thead>
+<h1 class="mt-5 font-family: 'Rolling Beat_Personal Use'">Customers</h1>
+<table class="table table-bordered table-striped">
+  <thead class="thead-light">
     <tr>
-      <th>Full name</th>
-      <th>Phone</th>
-      <th>Email</th>
+      <th scope="col">#</th>
+      <th><i class="fa-solid fa-user d-flex justify-content-center"></i></th>
+      <th><i class="fa-solid fa-phone d-flex justify-content-center"></i></th>
+      <th><i class="fa-solid fa-at d-flex justify-content-center"></i></th>
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
+    <% @x = 0 %>
     <% @customers.each do |customer| %>
       <tr>
+        <th scope="row"><%= @x += 1 %></th>
         <td><%= customer.full_name %></td>
         <td><%= customer.phone %></td>
         <td><%= customer.email %></td>
-        <td><%= link_to 'Show', customer %></td>
-        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-        <td><%= link_to 'Delete', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', customer, class: "btn btn-primary" %></td>
+        <td><%= link_to 'Edit', edit_customer_path(customer), class: "btn btn-primary"  %></td>
+        <td><%= link_to 'Delete', customer, class: "btn btn-primary",  method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<%= link_to 'New Customer', new_customer_path %> | <%= link_to 'Orders', orders_path %>
+<br>
+<%= link_to 'New Customer', new_customer_path, class: "btn btn-outline-secondary" %>
